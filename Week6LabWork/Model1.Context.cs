@@ -15,10 +15,10 @@ namespace Week6LabWork
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities : DbContext
+    public partial class Entities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        public Entities1()
+            : base("name=Entities1")
         {
         }
     
@@ -41,14 +41,14 @@ namespace Week6LabWork
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Territory> Territories { get; set; }
     
-        [DbFunction("Entities", "ProductsUnderThisUnitPrice")]
+        [DbFunction("Entities1", "ProductsUnderThisUnitPrice")]
         public virtual IQueryable<ProductsUnderThisUnitPrice_Result> ProductsUnderThisUnitPrice(Nullable<decimal> price)
         {
             var priceParameter = price.HasValue ?
                 new ObjectParameter("price", price) :
                 new ObjectParameter("price", typeof(decimal));
     
-            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<ProductsUnderThisUnitPrice_Result>("[Entities].[ProductsUnderThisUnitPrice](@price)", priceParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.CreateQuery<ProductsUnderThisUnitPrice_Result>("[Entities1].[ProductsUnderThisUnitPrice](@price)", priceParameter);
         }
     
         public virtual ObjectResult<Customers_By_City_Result> Customers_By_City(string param1)

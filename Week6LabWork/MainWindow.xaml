@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Week6LabWork"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Loaded="Grid_Loaded">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="3*"/>
@@ -18,9 +18,9 @@
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <ListBox x:Name="StockLvLLBOX" SelectionChanged="StockLvLLBOX_SelectionChanged" Grid.Row="1" Margin="10"/>
-        <ListBox x:Name="SuppliersLBOX" SelectionChanged="SuppliersLBOX_SelectionChanged" Grid.Column="1" Grid.Row="1" Margin="10"/>
-        <ListBox x:Name="CountryLBOX" SelectionChanged="CountryLBOX_SelectionChanged" Grid.Column="2" Grid.Row="1" Margin="10"/>
+        <ListBox x:Name="StockLvLLBOX" Grid.Row="1" Margin="10" SelectionChanged="StockLvLLBOX_SelectionChanged"/>
+        <ListBox x:Name="SuppliersLBOX" DisplayMemberPath="SupplierName" SelectedValuePath="SupplierID" Grid.Column="1" Grid.Row="1" Margin="10" SelectionChanged="SuppliersLBOX_SelectionChanged"/>
+        <ListBox x:Name="CountryLBOX" Grid.Column="2" Grid.Row="1" Margin="10" SelectionChanged="CountryLBOX_SelectionChanged"/>
         <ListBox x:Name="ProductsLBOX" Grid.ColumnSpan="3" Grid.Row="3" Margin="10"/>
         <Label Content="Stock Level" Grid.Column="0" Grid.Row="0" Margin="10" Background="#FF807C7C" FontSize="16" Foreground="White"/>
         <Label Content="Suppliers" Grid.Column="1" Grid.Row="0" Margin="10" Background="#FF807C7C" FontSize="16" Foreground="#FFFFFEFE"/>
